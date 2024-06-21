@@ -10,7 +10,8 @@ env:
   AWS_REGION: us-west-2
   ECR_REPOSITORY: gitops-argocd
   AWS_ACCOUNT_ID: 961936166279
-  HELM_REPO: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+  HELM_REPO: https://github.com/sakaleatgithub/argocd-gitops-eks.git 
+  GIT_HELM_REPO: sakaleatgithub/argocd-gitops-eks
   HELM_CHART_PATH: charts/nginx-chart
 jobs:
 
@@ -56,7 +57,7 @@ jobs:
     - name: Authenticate to remote Helm Charts GitHub Repo argocd-gitops-eks 
       uses: actions/checkout@v3
       with: 
-        repository: ${{ env.HELM_REPO }}
+        repository: ${{ env.GIT_HELM_REPO }}
         ref: 'main'
         token: ${{ secrets.G_TOKEN }}
         path: helm-repo
