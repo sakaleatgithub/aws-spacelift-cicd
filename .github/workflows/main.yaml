@@ -44,32 +44,34 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash
   #      echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash"
   #      echo "::set-output name=tag::$git_hash"
+      
+    - name: Authenticate to remote Helm Charts GitHub Repo argocd-gitops-eks 
+      uses: actions/checkout@v3
+      with: 
+        repository: sakaleatgithub/argocd-gitops-eks
+        ref: 'main'
+        token: ${{ secrets.G_TOKEN }}
+          
+    - name: Update ECR Image Tag to Helm values.yaml from argocd-gitops-eks      
+      run: |
+        git config --global user.name "sakaleatgithub"
+        git config --global user.email "kalesant@gmail.com"
+        echo $git_hash
         
-  CD:      
-    name: Update ECR Image Tag to Helm values.yaml from argocd-gitops-eks
-    runs-on: ubuntu-latest
-    needs: ['CI']
+        tag=$(cat ./charts/nginx-chart/values.yaml | grep tag: | awk '{print $2}')
+        sed -i "s/$tag/${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
+        
+        git add -A
+        git commit -am "Update values.yaml image tag with $git_hash"
+        echo ${{ github }}
+        git push origin master
+          
+    # CD:      
+    # name: Update ECR Image Tag to Helm values.yaml from argocd-gitops-eks
+    # runs-on: ubuntu-latest
+    # needs: ['CI']
     
-    steps:
-      - uses: actions/checkout@v3
-        with: 
-          repository: sakaleatgithub/argocd-gitops-eks
-          ref: 'main'
-          token: ${{ secrets.G_TOKEN }}
-          
-      - name: Update ECR Tag to charts/nginx-chart/values.yaml        
-        run: |
-          git config --global user.name "sakaleatgithub"
-          git config --global user.email "kalesant@gmail.com"
-          echo $git_hash
-          
-          tag=$(cat ./charts/nginx-chart/values.yaml | grep tag: | awk '{print $2}')
-          sed -i "s/$tag/${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
-          
-          git add -A
-          git commit -am "Update values.yaml image tag with $git_hash"
-          echo ${{ github }}
-          git push origin master
+    # steps:
         
 
 # name: demo-gitops
