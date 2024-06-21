@@ -10,7 +10,6 @@ env:
   AWS_REGION: us-west-2
   ECR_REPOSITORY: gitops-argocd
   AWS_ACCOUNT_ID: 961936166279
-  HELM_REPO: https://github.com/sakaleatgithub/argocd-gitops-eks.git 
   GIT_HELM_REPO: sakaleatgithub/argocd-gitops-eks
   HELM_CHART_PATH: charts/nginx-chart
 jobs:
@@ -75,7 +74,7 @@ jobs:
       with:
         github_token: ${{ secrets.G_TOKEN }}
         commit-message: 'Automate: Update ECR Image Tag'
-        repository: ${{ env.HELM_REPO }}
+        repository: ${{ env.GIT_HELM_REPO }}
         force: true
           
     # CD:      
