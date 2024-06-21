@@ -51,12 +51,13 @@ jobs:
     needs: ['CI']
     
     steps:
-      - name: Update ECR Tag to charts/nginx-chart/values.yaml
       - uses: actions/checkout@v3
         with: 
           repository: sakaleatgithub/argocd-gitops-eks
           ref: 'main'
           token: ${{ secrets.G_TOKEN }}
+          
+      - name: Update ECR Tag to charts/nginx-chart/values.yaml        
         run: |
           git config --global user.name "sakaleatgithub"
           git config --global user.email "kalesant@gmail.com"
