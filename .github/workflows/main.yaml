@@ -48,7 +48,7 @@ jobs:
   CD:      
     name: Update ECR Image Tag to Helm Values.yaml from argocd-gitops-eks
     runs-on: ubuntu-latest
-    needs: ['Deploy to Amazon ECR']
+    needs: ['CI']
     
     steps:
     - name: Update ECR Tag to charts/nginx-chart/values.yaml
