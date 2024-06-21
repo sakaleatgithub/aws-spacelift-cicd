@@ -73,9 +73,10 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{ secrets.G_TOKEN }}
-        commit-message: 'Automate: Update ECR Image Tag'
+        message: 'Automate: Update ECR Image Tag'
         repository: ${{ env.GIT_HELM_REPO }}
         force: true
+        directory: helm-repo
           
     # CD:      
     # name: Update ECR Image Tag to Helm values.yaml from argocd-gitops-eks
