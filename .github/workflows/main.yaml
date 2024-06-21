@@ -59,9 +59,6 @@ jobs:
         git config --global user.email "kalesant@gmail.com"
         echo $git_hash
         
-  #       tag=$(cat ./charts/nginx-chart/values.yaml | grep tag: | awk '{print $2}')
-        echo $tag
-  #       sed -i "s/$tag/${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
         sed -i "s/tag:.*/tag: ${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
         
         git add -A
@@ -75,7 +72,10 @@ jobs:
     # needs: ['CI']
     
     # steps:
-        
+  
+  #     tag=$(cat ./charts/nginx-chart/values.yaml | grep tag: | awk '{print $2}')
+  #     echo $tag
+  #     sed -i "s/$tag/${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
 
 # name: demo-gitops
 # # permissions:
