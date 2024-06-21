@@ -40,6 +40,7 @@ jobs:
         ECR_REGISTRY: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com
       run: |
         git_hash=$(git rev-parse --short "$GITHUB_SHA")
+        echo $git_hash
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash
   #      echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash"
@@ -63,7 +64,7 @@ jobs:
         sed -i "s/$tag/${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
         
         git add -A
-        git commit -am "Updating image tag $tag from values.yamlwith $git_hash"
+        git commit -am "Replacing image tag $tag from values.yaml with $git_hash"
         echo ${{ github }}
         git push origin
           
