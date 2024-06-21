@@ -29,7 +29,7 @@ jobs:
       id: git_tag
       run: |
         git_sha=$(git rev-parse --short "$GITHUB_SHA")
-        git_tag=${GITHUB_REF##*/}-$git_hash
+        git_tag=${GITHUB_REF##*/}-$git_sha
         echo "git_tag=$git_tag" >> $GITHUB_OUTPUT
 
     - name: Configure AWS credentials
@@ -76,7 +76,7 @@ jobs:
         message: 'Automate: Update ECR Image Tag'
         repository: ${{ env.GIT_HELM_REPO }}
         force: true
-        directory: helm-repo
+        directory: 'helm-repo'
           
     # CD:      
     # name: Update ECR Image Tag to Helm values.yaml from argocd-gitops-eks
