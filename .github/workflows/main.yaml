@@ -73,7 +73,7 @@ jobs:
     - name: Commit changes to Helm values file
       uses: actions-js/push@master
       with:
-        token: ${{ secrets.G_TOKEN }}
+        github_token: ${{ secrets.G_TOKEN }}
         commit-message: 'Automate: Update ECR Image Tag'
         repository: ${{ env.HELM_REPO }}
         force: true
