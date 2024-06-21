@@ -57,9 +57,10 @@ jobs:
       run: |
         git config --global user.name "sakaleatgithub"
         git config --global user.email "kalesant@gmail.com"
-        echo $git_hash
         
-        sed -i "s/tag:.*/tag: ${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
+        echo $git_hash
+        tag=$(cat ./charts/nginx-chart/values.yaml | grep tag: | awk '{print $2}')
+        sed -i "s/$tag/${GITHUB_REF##*/}-$git_hash/" ./charts/nginx-chart/values.yaml
         
         git add -A
         git commit -am "Replacing image tag $tag from values.yaml with $git_hash"
