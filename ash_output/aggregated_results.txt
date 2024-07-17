@@ -1,0 +1,75 @@
+#############################################
+Start of  /src/ash_output/work/cdk_report_result.txt
+#############################################
+
+starting to investigate ...
+found 0 files to scan.  Skipping scans.
+#############################################
+End of  /src/ash_output/work/cdk_report_result.txt
+#############################################
+
+
+#############################################
+Start of  /src/ash_output/work/yaml_report_result.txt
+#############################################
+
+>>>>>> Begin yaml scan output for /tmp/ash-run-scan.SUK9 >>>>>>
+
+starting to investigate ...
+found 1 files to scan.  Starting checkov scans ...
+>>>>>> begin checkov result for Dockerfile >>>>>>
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By Prisma Cloud | version: 3.2.191 
+
+dockerfile scan results:
+
+Passed checks: 2, Failed checks: 2, Skipped checks: 0
+
+Check: CKV_DOCKER_11: "Ensure From Alias are unique for multistage builds."
+	PASSED for resource: /tmp/ash-run-scan.SUK9/Dockerfile.
+	File: /tmp/ash-run-scan.SUK9/Dockerfile:1-2
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-docker-from-alias-is-unique-for-multistage-builds
+Check: CKV_DOCKER_7: "Ensure the base image uses a non latest version tag"
+	PASSED for resource: /tmp/ash-run-scan.SUK9/Dockerfile.FROM
+	File: /tmp/ash-run-scan.SUK9/Dockerfile:1-1
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-the-base-image-uses-a-non-latest-version-tag
+Check: CKV_DOCKER_2: "Ensure that HEALTHCHECK instructions have been added to container images"
+	FAILED for resource: /tmp/ash-run-scan.SUK9/Dockerfile.
+	File: /tmp/ash-run-scan.SUK9/Dockerfile:1-2
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-healthcheck-instructions-have-been-added-to-container-images
+
+		1 | From nginx:alpine
+		2 | COPY index.html /usr/share/nginx/html
+Check: CKV_DOCKER_3: "Ensure that a user for the container has been created"
+	FAILED for resource: /tmp/ash-run-scan.SUK9/Dockerfile.
+	File: /tmp/ash-run-scan.SUK9/Dockerfile:1-2
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-a-user-for-the-container-has-been-created
+
+		1 | From nginx:alpine
+		2 | COPY index.html /usr/share/nginx/html
+
+<<<<<< end checkov result for Dockerfile <<<<<<
+found 0 files to scan.  Skipping cfn_nag scans.
+
+<<<<<< End yaml scan output for /tmp/ash-run-scan.SUK9 <<<<<<
+
+
+>>>>>> Begin yaml scan output for /src/ash_output/work >>>>>>
+
+starting to investigate ...
+found 0 files to scan.  Skipping checkov scans.
+found 0 files to scan.  Skipping cfn_nag scans.
+
+<<<<<< End yaml scan output for /src/ash_output/work <<<<<<
+
+#############################################
+End of  /src/ash_output/work/yaml_report_result.txt
+#############################################
+
+

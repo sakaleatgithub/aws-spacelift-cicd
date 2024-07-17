@@ -1,0 +1,284 @@
+metadata:
+  creationTimestamp: "2024-06-27T05:27:12Z"
+  generation: 7562
+  managedFields:
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:destination:
+          .: {}
+          f:namespace: {}
+          f:server: {}
+        f:project: {}
+        f:source:
+          .: {}
+          f:path: {}
+          f:repoURL: {}
+          f:targetRevision: {}
+        f:syncPolicy:
+          .: {}
+          f:automated:
+            .: {}
+            f:prune: {}
+            f:selfHeal: {}
+          f:syncOptions: {}
+      f:status:
+        .: {}
+        f:health: {}
+        f:summary: {}
+        f:sync:
+          .: {}
+          f:comparedTo:
+            .: {}
+            f:destination: {}
+            f:source: {}
+    manager: argocd-server
+    operation: Update
+    time: "2024-07-11T21:23:20Z"
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:controllerNamespace: {}
+        f:health:
+          f:status: {}
+        f:history: {}
+        f:operationState:
+          .: {}
+          f:finishedAt: {}
+          f:message: {}
+          f:operation:
+            .: {}
+            f:initiatedBy:
+              .: {}
+              f:automated: {}
+            f:retry:
+              .: {}
+              f:limit: {}
+            f:sync:
+              .: {}
+              f:prune: {}
+              f:revision: {}
+              f:syncOptions: {}
+          f:phase: {}
+          f:startedAt: {}
+          f:syncResult:
+            .: {}
+            f:resources: {}
+            f:revision: {}
+            f:source:
+              .: {}
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+        f:reconciledAt: {}
+        f:resources: {}
+        f:sourceType: {}
+        f:summary:
+          f:images: {}
+        f:sync:
+          f:comparedTo:
+            f:destination:
+              f:namespace: {}
+              f:server: {}
+            f:source:
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+          f:revision: {}
+          f:status: {}
+    manager: argocd-application-controller
+    operation: Update
+    time: "2024-07-12T18:24:29Z"
+  name: mdlz-demo-argocd-app1-qa
+  namespace: argocd
+  resourceVersion: "8162812"
+  uid: 4aacdc6a-effe-46de-8139-85722babaf35
+spec:
+  destination:
+    namespace: nginx
+    server: https://913D271DF8C5C5049241988C3DFE07F4.gr7.us-west-2.eks.amazonaws.com
+  project: default
+  source:
+    path: charts/nginx-chart
+    repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+    targetRevision: qa
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2024-06-27T05:27:13Z"
+    deployedAt: "2024-06-27T05:27:13Z"
+    id: 0
+    revision: 633d6c344a875a9a276675b822a1be105ee2ddd6
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-06-27T06:42:25Z"
+    deployedAt: "2024-06-27T06:42:26Z"
+    id: 1
+    revision: 5b85e87b5d1aaa37a924436fb52c1346af466812
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-06-27T22:20:36Z"
+    deployedAt: "2024-06-27T22:20:36Z"
+    id: 2
+    revision: 590de435e291c411fb7d55c47660d4edc8a1e177
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-06-27T23:02:49Z"
+    deployedAt: "2024-06-27T23:02:50Z"
+    id: 3
+    revision: a6e8f49fe579310a75ab41379275a1f300e14bd2
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-07-01T18:56:20Z"
+    deployedAt: "2024-07-01T18:56:20Z"
+    id: 4
+    revision: f5140bca789442fa07bccdf3d25cae901b01f9d7
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-07-01T19:14:51Z"
+    deployedAt: "2024-07-01T19:14:52Z"
+    id: 5
+    revision: 119aebfc0b374bdd26612317388296f6fac90c5a
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-07-01T20:30:26Z"
+    deployedAt: "2024-07-01T20:30:27Z"
+    id: 6
+    revision: 420e178d20a211d3e013602e3037c4a9ec67fc45
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-07-09T04:33:31Z"
+    deployedAt: "2024-07-09T04:33:31Z"
+    id: 7
+    revision: fdea275ec9f68382f7b17a93b077211d711f00e8
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-07-09T15:21:29Z"
+    deployedAt: "2024-07-09T15:21:30Z"
+    id: 8
+    revision: 7bcf51f04cf9415bf4a144a04b342eee71596a98
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  - deployStartedAt: "2024-07-11T21:23:21Z"
+    deployedAt: "2024-07-11T21:23:22Z"
+    id: 9
+    revision: 52e3a3ca2ec8af1f7a5f999faf0a73b8f91ab07a
+    source:
+      path: charts/nginx-chart
+      repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+      targetRevision: qa
+  operationState:
+    finishedAt: "2024-07-11T21:23:22Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        revision: 52e3a3ca2ec8af1f7a5f999faf0a73b8f91ab07a
+        syncOptions:
+        - CreateNamespace=true
+    phase: Succeeded
+    startedAt: "2024-07-11T21:23:21Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/mdlz-demo-argocd-app1-qa-nginx-chart unchanged
+        name: mdlz-demo-argocd-app1-qa-nginx-chart
+        namespace: nginx
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/mdlz-demo-argocd-app1-qa-nginx-chart unchanged
+        name: mdlz-demo-argocd-app1-qa-nginx-chart
+        namespace: nginx
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/mdlz-demo-argocd-app1-qa-nginx-chart configured
+        name: mdlz-demo-argocd-app1-qa-nginx-chart
+        namespace: nginx
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 52e3a3ca2ec8af1f7a5f999faf0a73b8f91ab07a
+      source:
+        path: charts/nginx-chart
+        repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+        targetRevision: qa
+  reconciledAt: "2024-07-12T18:24:29Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: mdlz-demo-argocd-app1-qa-nginx-chart
+    namespace: nginx
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: mdlz-demo-argocd-app1-qa-nginx-chart
+    namespace: nginx
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: mdlz-demo-argocd-app1-qa-nginx-chart
+    namespace: nginx
+    status: Synced
+    version: v1
+  sourceType: Helm
+  summary:
+    images:
+    - 961936166279.dkr.ecr.us-west-2.amazonaws.com/gitops-argocd:main-aaf725b
+  sync:
+    comparedTo:
+      destination:
+        namespace: nginx
+        server: https://913D271DF8C5C5049241988C3DFE07F4.gr7.us-west-2.eks.amazonaws.com
+      source:
+        path: charts/nginx-chart
+        repoURL: https://github.com/sakaleatgithub/argocd-gitops-eks.git
+        targetRevision: qa
+    revision: 52e3a3ca2ec8af1f7a5f999faf0a73b8f91ab07a
+    status: Synced

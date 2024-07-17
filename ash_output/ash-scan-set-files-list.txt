@@ -1,0 +1,8 @@
+/tmp/ash-run-scan.SUK9/.github/workflows/main.yaml
+/tmp/ash-run-scan.SUK9/Dockerfile
+/tmp/ash-run-scan.SUK9/index.html
+/tmp/ash-run-scan.SUK9/qa/argocd-application-controller-ss.yaml
+/tmp/ash-run-scan.SUK9/qa/argocd-cli-pod.yaml
+/tmp/ash-run-scan.SUK9/qa/argocd-server-deployment.yaml
+/tmp/ash-run-scan.SUK9/qa/eks-cluster-qa-secrets.yaml
+/tmp/ash-run-scan.SUK9/qa/nginx-test-pod.yaml
